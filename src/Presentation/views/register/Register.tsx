@@ -30,6 +30,9 @@ const RegisterScreen = () => {
     register,
   } = useViewModel();
 
+  const onRegister = async () => {
+    await register();
+  }
   return (
     <View style={styles.container}>
       <Image
@@ -106,7 +109,7 @@ const RegisterScreen = () => {
         <View style={{ marginTop: 30 }}>
           <RoundedButton
             text="Registrarse"
-            onPress={() => register()}
+            onPress={() => onRegister()}
           ></RoundedButton>
         </View>
       </View>
