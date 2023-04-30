@@ -5,10 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RegisterScreen from './src/Presentation/views/register/Register';
 import { View, Text, StyleSheet } from 'react-native';
+import { profileInfoScreen } from './src/Presentation/views/profile/info/ProfileInfo';
 
 export type RootStackParamList = {
   HomeScreen: undefined;
   RegisterScreen: undefined;
+  ProfileInfoScreen: undefined;
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -27,6 +29,11 @@ const App = () => {
         <Stack.Screen
           name="HomeScreen"
           component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ProfileInfoScreen"
+          component={profileInfoScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
