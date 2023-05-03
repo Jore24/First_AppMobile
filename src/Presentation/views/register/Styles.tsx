@@ -6,6 +6,13 @@ const RegisterStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'black',
   },
+  loading: {
+    position: 'absolute',
+    bottom: 0,
+    top: 0,
+    right: 0,
+    left: 0,
+  },
   imageBackground: {
     width: '100%',
     height: '100%',

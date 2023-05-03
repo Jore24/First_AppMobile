@@ -5,12 +5,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RegisterScreen from './src/Presentation/views/register/Register';
 import { View, Text, StyleSheet } from 'react-native';
-import { profileInfoScreen } from './src/Presentation/views/profile/info/ProfileInfo';
+import { ProfileInfoScreen } from './src/Presentation/views/profile/info/ProfileInfo';
+import { RolesScreen } from './src/Presentation/views/roles/Roles';
 
 export type RootStackParamList = {
   HomeScreen: undefined;
   RegisterScreen: undefined;
   ProfileInfoScreen: undefined;
+  RolesScreen: undefined;
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -33,9 +35,15 @@ const App = () => {
         />
         <Stack.Screen
           name="ProfileInfoScreen"
-          component={profileInfoScreen}
+          component={ProfileInfoScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="RolesScreen"
+          component={RolesScreen}
+          options={{ headerShown: true, title: 'Selecciona un rol' }}
+        />
+
         <Stack.Screen
           name="RegisterScreen"
           component={RegisterScreen}
@@ -62,5 +70,3 @@ const App = () => {
 export default App;
 
 const styles = StyleSheet.create({});
-
-

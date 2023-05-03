@@ -1,8 +1,8 @@
 import { UserLocalRepositoryImpl } from "../../../Data/repositories/UserLocalRepository";
-import { User } from "../../../Domain/entitys/User";
+import { User } from "../../entitys/User";
 
 const { save } = new UserLocalRepositoryImpl();
 
-export const SaveUserUseCase = async (user: User) => {
+export const SaveUserLocalUseCase = async (user: User) => {
   return await save(user);
 }

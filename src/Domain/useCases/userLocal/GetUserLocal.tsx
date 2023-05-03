@@ -1,8 +1,8 @@
 import { UserLocalRepositoryImpl } from "../../../Data/repositories/UserLocalRepository";
-import { User } from "../../../Domain/entitys/User";
+import { User } from "../../entitys/User";
 
 const { getUser } = new UserLocalRepositoryImpl();
 
-export const GetUserUseCase = async () => {
+export const GetUserLocalUseCase = async () => {
   return await getUser();
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { LoginAuthUseCase } from '../../../Domain/useCases/auth/LoginAuth';
-import { SaveUserUseCase } from '../../../Domain/useCases/userLocal/SaveUser';
-import { GetUserUseCase } from '../../../Domain/useCases/userLocal/GetUser';
+import { SaveUserLocalUseCase } from '../../../Domain/useCases/userLocal/SaveUserLocal';
+import { GetUserLocalUseCase } from '../../../Domain/useCases/userLocal/GetUserLocal';
 import { useEffect } from 'react';
 import {useUserLocal} from '../../hooks/userLocal';
 
@@ -12,7 +12,7 @@ const HomeViewModel = () => {
     email: '',
     password: '',
   });
-  const {user} = useUserLocal();
+  const {user, getUserSession} = useUserLocal();
   console.log('user de sesión a través de los hooks: ', JSON.stringify(user));
 
   
@@ -29,7 +29,8 @@ const HomeViewModel = () => {
         return;
       }
       else{
-        await SaveUserUseCase(response.data);
+        await SaveUserLocalUseCase(response.data);
+        getUserSession();
       }
     }
   };

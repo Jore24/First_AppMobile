@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { GetUserUseCase } from '../../Domain/useCases/userLocal/GetUser';
+import { GetUserLocalUseCase } from '../../Domain/useCases/userLocal/GetUserLocal';
 import { User } from '../../Domain/entitys/User';
 
 export const useUserLocal = () => {
@@ -10,10 +10,10 @@ export const useUserLocal = () => {
   }, []);
 
   const getUserSession = async () => {
-    const user = await GetUserUseCase();
+    const user = await GetUserLocalUseCase();
     setUser(user);
   };
-  return { user };
+  return { user, getUserSession };
 };
 
 
